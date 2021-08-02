@@ -18,6 +18,18 @@ time, mark, audio, video {
 h1 {
     text-align: center;
 }
+.instructions{
+    text-align: justify;
+    width: 90vw;
+    margin: 20px auto;
+    font-size: 1em;
+}
+.instructions p{
+    text-indent: 20px;
+}
+.instructions .instructions__rules{
+    margin: 20px 15px;
+}
 .torres {
     display: flex;
     height: 200px;
@@ -73,6 +85,7 @@ h1 {
 @media (min-width:470px){
     h1 {
         text-align: center;
+        padding: 15px;
     }
     .torres {
         display: flex;
@@ -125,4 +138,5 @@ h1 {
         font-weight: bold;
         justify-content: space-around;
     }
-}
+}  
+
