@@ -30,6 +30,13 @@ h1 {
 .instructions .instructions__rules{
     margin: 20px 15px;
 }
+#passos{
+    width: 150px;
+    margin: 0px 10vw;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 .torres {
     display: flex;
     height: 150px;

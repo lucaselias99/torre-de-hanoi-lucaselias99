@@ -10,10 +10,13 @@ let legendas = document.createElement("section");
 let legendaStart = document.createElement("div");
 let legendaOffSet = document.createElement("div");
 let legendaEnd = document.createElement("div");
+let movesCointainer =document.getElementById("passos");
+let moves = 0;
 
 
 
 function createTower() {
+    countMoves();
     torresContainer.classList.add("torres");
     document.body.appendChild(torresContainer);
 
@@ -63,37 +66,45 @@ createTower();
 let clickUm = false;
 let clickDois = false;
 let clickTres = false;
-torreUm.addEventListener('click', function(e) {
+torreUm.addEventListener('click', function (e) {
     clickUm = true;
     //console.log(`clickum : ${clickUm}`)
     //console.log(e.currentTarget)
-    if(clickDois===true) {
-        if(torreUm.lastElementChild === null){
+    if (clickDois === true) {
+        if (torreUm.lastElementChild === null) {
             torreUm.appendChild(torreDois.lastElementChild);
+            moves++;
+            countMoves();
             clickDois = false;
             clickUm = false;
-        } else if(torreUm.lastElementChild != null){
-            if(torreDois.lastElementChild.clientWidth < torreUm.lastElementChild.clientWidth ){
+        } else if (torreUm.lastElementChild != null) {
+            if (torreDois.lastElementChild.clientWidth < torreUm.lastElementChild.clientWidth) {
                 torreUm.appendChild(torreDois.lastElementChild);
+                moves++;
+                countMoves();
                 clickDois = false;
                 clickUm = false;
-            }else {
+            } else {
                 clickDois = false;
                 clickUm = false;
             }
         }
     }
-    if(clickTres===true) {
-        if(torreUm.lastElementChild === null){
+    if (clickTres === true) {
+        if (torreUm.lastElementChild === null) {
             torreUm.appendChild(torreTres.lastElementChild);
+            moves++;
+            countMoves();
             clickTres = false;
             clickUm = false;
-        } else if(torreUm.lastElementChild != null){
-            if(torreTres.lastElementChild.clientWidth < torreUm.lastElementChild.clientWidth ){
+        } else if (torreUm.lastElementChild != null) {
+            if (torreTres.lastElementChild.clientWidth < torreUm.lastElementChild.clientWidth) {
                 torreUm.appendChild(torreTres.lastElementChild);
+                moves++;
+                countMoves();
                 clickTres = false;
                 clickUm = false;
-            }else {
+            } else {
                 clickTres = false;
                 clickUm = false;
             }
@@ -101,18 +112,22 @@ torreUm.addEventListener('click', function(e) {
     }
 })
 
-torreDois.addEventListener('click',function(e) {
+torreDois.addEventListener('click', function (e) {
     clickDois = true;
     //console.log(`clickDois : ${clickDois}`)
     //console.log(e.currentTarget)
-    if(clickUm===true) {
-        if(torreDois.lastElementChild === null){
+    if (clickUm === true) {
+        if (torreDois.lastElementChild === null) {
             torreDois.appendChild(torreUm.lastElementChild);
+            moves++;
+            countMoves();
             clickUm = false;
             clickDois = false;
-        } else if(torreDois.lastElementChild != null){
-            if(torreUm.lastElementChild.clientWidth < torreDois.lastElementChild.clientWidth ){
+        } else if (torreDois.lastElementChild != null) {
+            if (torreUm.lastElementChild.clientWidth < torreDois.lastElementChild.clientWidth) {
                 torreDois.appendChild(torreUm.lastElementChild);
+                moves++;
+                countMoves();
                 clickUm = false;
                 clickDois = false;
             } else {
@@ -121,17 +136,21 @@ torreDois.addEventListener('click',function(e) {
             }
         }
     }
-    if(clickTres===true) {
-        if(torreDois.lastElementChild === null){
+    if (clickTres === true) {
+        if (torreDois.lastElementChild === null) {
             torreDois.appendChild(torreTres.lastElementChild);
+            moves++;
+            countMoves();
             clickTres = false;
             clickDois = false;
-        } else if(torreDois.lastElementChild != null){
-            if(torreTres.lastElementChild.clientWidth < torreDois.lastElementChild.clientWidth ){
+        } else if (torreDois.lastElementChild != null) {
+            if (torreTres.lastElementChild.clientWidth < torreDois.lastElementChild.clientWidth) {
                 torreDois.appendChild(torreTres.lastElementChild);
+                moves++;
+                countMoves();
                 clickTres = false;
                 clickDois = false;
-            }else {
+            } else {
                 clickTres = false;
                 clickDois = false;
             }
@@ -139,37 +158,49 @@ torreDois.addEventListener('click',function(e) {
     }
 })
 
-torreTres.addEventListener('click',function(e) {
+torreTres.addEventListener('click', function (e) {
     clickTres = true;
     //console.log(`clickTres : ${clickTres}`)
     //console.log(e.currentTarget)
-    if(clickUm===true) {
-        if(torreTres.lastElementChild === null){
+    if (clickUm === true) {
+        if (torreTres.lastElementChild === null) {
             torreTres.appendChild(torreUm.lastElementChild);
+            moves++;
+            countMoves();
+            checkVictory()
             clickUm = false;
             clickTres = false;
-        } else if(torreTres.lastElementChild != null){
-            if(torreUm.lastElementChild.clientWidth < torreTres.lastElementChild.clientWidth ){
+        } else if (torreTres.lastElementChild != null) {
+            if (torreUm.lastElementChild.clientWidth < torreTres.lastElementChild.clientWidth) {
                 torreTres.appendChild(torreUm.lastElementChild);
+                moves++;
+                countMoves();
+                checkVictory()
                 clickUm = false;
                 clickTres = false;
-            }else {
+            } else {
                 clickUm = false;
                 clickTres = false;
             }
         }
     }
-    if(clickDois===true) {
-        if(torreTres.lastElementChild === null){
+    if (clickDois === true) {
+        if (torreTres.lastElementChild === null) {
             torreTres.appendChild(torreDois.lastElementChild);
+            moves++;
+            countMoves();
+            checkVictory()
             clickDois = false;
             clickTres = false;
-        } else if(torreTres.lastElementChild != null){
-            if(torreDois.lastElementChild.clientWidth < torreTres.lastElementChild.clientWidth ){
+        } else if (torreTres.lastElementChild != null) {
+            if (torreDois.lastElementChild.clientWidth < torreTres.lastElementChild.clientWidth) {
                 torreTres.appendChild(torreDois.lastElementChild);
+                moves++;
+                countMoves();
+                checkVictory()
                 clickDois = false;
                 clickTres = false;
-            }else {
+            } else {
                 clickDois = false;
                 clickTres = false;
             }
@@ -177,60 +208,68 @@ torreTres.addEventListener('click',function(e) {
     }
 })
 
-discoUm.addEventListener('click',function(e){
-    if(e.currentTarget === torreUm.lastElementChild){
+discoUm.addEventListener('click', function (e) {
+    if (e.currentTarget === torreUm.lastElementChild) {
         clickUm = true;
         console.log(clickUm)
     }
-    if(e.currentTarget === torreDois.lastElementChild){
+    if (e.currentTarget === torreDois.lastElementChild) {
         clickDois = true;
         console.log(clickDois)
     }
-    if(e.currentTarget === torreTres.lastElementChild){
+    if (e.currentTarget === torreTres.lastElementChild) {
         clickTres = true;
         console.log(clickTres)
     }
 })
-discoDois.addEventListener('click',function(e){
-    if(e.currentTarget === torreUm.lastElementChild){
+discoDois.addEventListener('click', function (e) {
+    if (e.currentTarget === torreUm.lastElementChild) {
         clickUm = true;
         console.log(clickUm)
     }
-    if(e.currentTarget === torreDois.lastElementChild){
+    if (e.currentTarget === torreDois.lastElementChild) {
         clickDois = true;
         console.log(clickDois)
     }
-    if(e.currentTarget === torreTres.lastElementChild){
+    if (e.currentTarget === torreTres.lastElementChild) {
         clickTres = true;
         console.log(clickTres)
     }
 })
-discoTres.addEventListener('click',function(e){
-    if(e.currentTarget === torreUm.lastElementChild){
+discoTres.addEventListener('click', function (e) {
+    if (e.currentTarget === torreUm.lastElementChild) {
         clickUm = true;
         console.log(clickUm)
     }
-    if(e.currentTarget === torreDois.lastElementChild){
+    if (e.currentTarget === torreDois.lastElementChild) {
         clickDois = true;
         console.log(clickDois)
     }
-    if(e.currentTarget === torreTres.lastElementChild){
+    if (e.currentTarget === torreTres.lastElementChild) {
         clickTres = true;
         console.log(clickTres)
     }
 })
-discoQuatro.addEventListener('click',function(e){
-    if(e.currentTarget === torreUm.lastElementChild){
+discoQuatro.addEventListener('click', function (e) {
+    if (e.currentTarget === torreUm.lastElementChild) {
         clickUm = true;
         console.log(clickUm)
     }
-    if(e.currentTarget === torreDois.lastElementChild){
+    if (e.currentTarget === torreDois.lastElementChild) {
         clickDois = true;
         console.log(clickDois)
     }
-    if(e.currentTarget === torreTres.lastElementChild){
+    if (e.currentTarget === torreTres.lastElementChild) {
         clickTres = true;
         console.log(clickTres)
     }
 })
+function countMoves(){
+   return movesCointainer.innerText=`Movimentos: ${moves}`;
+}
+function checkVictory() {
+    if (torreTres.childElementCount === 4) {
+        window.alert("Parabéns você venceu!")
+    }
+}
 
