@@ -58,12 +58,14 @@ function createTower() {
 }
 
 createTower();
-clickUm = false;
-clickDois = false;
-clickTres = false;
+
+
+let clickUm = false;
+let clickDois = false;
+let clickTres = false;
 torreUm.addEventListener('click', function(e) {
     clickUm = true;
-    //console.log(clickum)
+    //console.log(`clickum : ${clickUm}`)
     //console.log(e.currentTarget)
     if(clickDois===true) {
         if(torreUm.lastElementChild === null){
@@ -73,6 +75,9 @@ torreUm.addEventListener('click', function(e) {
         } else if(torreUm.lastElementChild != null){
             if(torreDois.lastElementChild.clientWidth < torreUm.lastElementChild.clientWidth ){
                 torreUm.appendChild(torreDois.lastElementChild);
+                clickDois = false;
+                clickUm = false;
+            }else {
                 clickDois = false;
                 clickUm = false;
             }
@@ -88,13 +93,17 @@ torreUm.addEventListener('click', function(e) {
                 torreUm.appendChild(torreTres.lastElementChild);
                 clickTres = false;
                 clickUm = false;
+            }else {
+                clickTres = false;
+                clickUm = false;
             }
         }
     }
 })
+
 torreDois.addEventListener('click',function(e) {
     clickDois = true;
-    //console.log(clickdois)
+    //console.log(`clickDois : ${clickDois}`)
     //console.log(e.currentTarget)
     if(clickUm===true) {
         if(torreDois.lastElementChild === null){
@@ -104,6 +113,9 @@ torreDois.addEventListener('click',function(e) {
         } else if(torreDois.lastElementChild != null){
             if(torreUm.lastElementChild.clientWidth < torreDois.lastElementChild.clientWidth ){
                 torreDois.appendChild(torreUm.lastElementChild);
+                clickUm = false;
+                clickDois = false;
+            } else {
                 clickUm = false;
                 clickDois = false;
             }
@@ -118,14 +130,18 @@ torreDois.addEventListener('click',function(e) {
             if(torreTres.lastElementChild.clientWidth < torreDois.lastElementChild.clientWidth ){
                 torreDois.appendChild(torreTres.lastElementChild);
                 clickTres = false;
-                clickdDois = false;
+                clickDois = false;
+            }else {
+                clickTres = false;
+                clickDois = false;
             }
         }
     }
 })
+
 torreTres.addEventListener('click',function(e) {
     clickTres = true;
-    //console.log(clicktres)
+    //console.log(`clickTres : ${clickTres}`)
     //console.log(e.currentTarget)
     if(clickUm===true) {
         if(torreTres.lastElementChild === null){
@@ -135,6 +151,9 @@ torreTres.addEventListener('click',function(e) {
         } else if(torreTres.lastElementChild != null){
             if(torreUm.lastElementChild.clientWidth < torreTres.lastElementChild.clientWidth ){
                 torreTres.appendChild(torreUm.lastElementChild);
+                clickUm = false;
+                clickTres = false;
+            }else {
                 clickUm = false;
                 clickTres = false;
             }
@@ -150,7 +169,68 @@ torreTres.addEventListener('click',function(e) {
                 torreTres.appendChild(torreDois.lastElementChild);
                 clickDois = false;
                 clickTres = false;
+            }else {
+                clickDois = false;
+                clickTres = false;
             }
         }
     }
 })
+
+discoUm.addEventListener('click',function(e){
+    if(e.currentTarget === torreUm.lastElementChild){
+        clickUm = true;
+        console.log(clickUm)
+    }
+    if(e.currentTarget === torreDois.lastElementChild){
+        clickDois = true;
+        console.log(clickDois)
+    }
+    if(e.currentTarget === torreTres.lastElementChild){
+        clickTres = true;
+        console.log(clickTres)
+    }
+})
+discoDois.addEventListener('click',function(e){
+    if(e.currentTarget === torreUm.lastElementChild){
+        clickUm = true;
+        console.log(clickUm)
+    }
+    if(e.currentTarget === torreDois.lastElementChild){
+        clickDois = true;
+        console.log(clickDois)
+    }
+    if(e.currentTarget === torreTres.lastElementChild){
+        clickTres = true;
+        console.log(clickTres)
+    }
+})
+discoTres.addEventListener('click',function(e){
+    if(e.currentTarget === torreUm.lastElementChild){
+        clickUm = true;
+        console.log(clickUm)
+    }
+    if(e.currentTarget === torreDois.lastElementChild){
+        clickDois = true;
+        console.log(clickDois)
+    }
+    if(e.currentTarget === torreTres.lastElementChild){
+        clickTres = true;
+        console.log(clickTres)
+    }
+})
+discoQuatro.addEventListener('click',function(e){
+    if(e.currentTarget === torreUm.lastElementChild){
+        clickUm = true;
+        console.log(clickUm)
+    }
+    if(e.currentTarget === torreDois.lastElementChild){
+        clickDois = true;
+        console.log(clickDois)
+    }
+    if(e.currentTarget === torreTres.lastElementChild){
+        clickTres = true;
+        console.log(clickTres)
+    }
+})
+
