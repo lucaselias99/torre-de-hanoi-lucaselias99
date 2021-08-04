@@ -272,4 +272,7 @@ function checkVictory() {
     }
 }
 
-botao.addEventListener("click",()=>createTower())
+botao.addEventListener("click",function(){
+    moves = 0;
+    createTower()
+})
