@@ -12,6 +12,8 @@ let legendaOffSet = document.createElement("div");
 let legendaEnd = document.createElement("div");
 let movesCointainer =document.getElementById("passos");
 let moves = 0;
+let botao = document.createElement('button')
+let footer = document.createElement('div')
 
 
 
@@ -58,6 +60,12 @@ function createTower() {
     legendas.appendChild(legendaStart);
     legendas.appendChild(legendaOffSet);
     legendas.appendChild(legendaEnd);
+
+    document.body.appendChild(footer)
+    footer.appendChild(botao)
+    footer.id = "footer"
+    botao.id = "botao"
+    botao.innerText = "Reset"
 }
 
 createTower();
@@ -67,9 +75,6 @@ let clickUm = false;
 let clickDois = false;
 let clickTres = false;
 torreUm.addEventListener('click', function (e) {
-    clickUm = true;
-    //console.log(`clickum : ${clickUm}`)
-    //console.log(e.currentTarget)
     if (clickDois === true) {
         if (torreUm.lastElementChild === null) {
             torreUm.appendChild(torreDois.lastElementChild);
@@ -113,9 +118,6 @@ torreUm.addEventListener('click', function (e) {
 })
 
 torreDois.addEventListener('click', function (e) {
-    clickDois = true;
-    //console.log(`clickDois : ${clickDois}`)
-    //console.log(e.currentTarget)
     if (clickUm === true) {
         if (torreDois.lastElementChild === null) {
             torreDois.appendChild(torreUm.lastElementChild);
@@ -159,9 +161,6 @@ torreDois.addEventListener('click', function (e) {
 })
 
 torreTres.addEventListener('click', function (e) {
-    clickTres = true;
-    //console.log(`clickTres : ${clickTres}`)
-    //console.log(e.currentTarget)
     if (clickUm === true) {
         if (torreTres.lastElementChild === null) {
             torreTres.appendChild(torreUm.lastElementChild);
@@ -272,4 +271,3 @@ function checkVictory() {
         window.alert("Parabéns você venceu!")
     }
 }
-
