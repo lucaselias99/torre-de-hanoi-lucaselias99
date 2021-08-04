@@ -207,67 +207,43 @@ torreTres.addEventListener('click', function (e) {
     }
 })
 
-discoUm.addEventListener('click', function (e) {
-    if (e.currentTarget === torreUm.lastElementChild) {
+function clickChecagem(e){
+    if(e.currentTarget === torreUm.lastElementChild){
         clickUm = true;
-        console.log(clickUm)
+        
     }
-    if (e.currentTarget === torreDois.lastElementChild) {
+    if(e.currentTarget === torreDois.lastElementChild){
         clickDois = true;
-        console.log(clickDois)
+        
     }
-    if (e.currentTarget === torreTres.lastElementChild) {
+    if(e.currentTarget === torreTres.lastElementChild){
         clickTres = true;
-        console.log(clickTres)
+        
     }
+}
+
+discoUm.addEventListener('click', function(e){
+    clickChecagem(e)
 })
-discoDois.addEventListener('click', function (e) {
-    if (e.currentTarget === torreUm.lastElementChild) {
-        clickUm = true;
-        console.log(clickUm)
-    }
-    if (e.currentTarget === torreDois.lastElementChild) {
-        clickDois = true;
-        console.log(clickDois)
-    }
-    if (e.currentTarget === torreTres.lastElementChild) {
-        clickTres = true;
-        console.log(clickTres)
-    }
+
+discoDois.addEventListener('click',function(e){
+    clickChecagem(e)
 })
-discoTres.addEventListener('click', function (e) {
-    if (e.currentTarget === torreUm.lastElementChild) {
-        clickUm = true;
-        console.log(clickUm)
-    }
-    if (e.currentTarget === torreDois.lastElementChild) {
-        clickDois = true;
-        console.log(clickDois)
-    }
-    if (e.currentTarget === torreTres.lastElementChild) {
-        clickTres = true;
-        console.log(clickTres)
-    }
+
+discoTres.addEventListener('click',function(e){
+    clickChecagem(e)
 })
-discoQuatro.addEventListener('click', function (e) {
-    if (e.currentTarget === torreUm.lastElementChild) {
-        clickUm = true;
-        console.log(clickUm)
-    }
-    if (e.currentTarget === torreDois.lastElementChild) {
-        clickDois = true;
-        console.log(clickDois)
-    }
-    if (e.currentTarget === torreTres.lastElementChild) {
-        clickTres = true;
-        console.log(clickTres)
-    }
+
+discoQuatro.addEventListener('click',function(e){
+    clickChecagem(e)
 })
+
 function countMoves(){
    return movesCointainer.innerText=`Movimentos: ${moves}`;
 }
+
 function checkVictory() {
-    if (torreTres.childElementCount === 4) {
+    if (torreTres.childElementCount === 4){
         window.alert("Parabéns você venceu!")
     }
 }
