@@ -12,8 +12,8 @@ let legendaOffSet = document.createElement("div");
 let legendaEnd = document.createElement("div");
 let movesCointainer =document.getElementById("passos");
 let moves = 0;
-let botao = document.createElement('button')
-let footer = document.createElement('div')
+let botao = document.createElement('button');
+let footer = document.createElement('div');
 
 
 
@@ -271,3 +271,5 @@ function checkVictory() {
         window.alert("Parabéns você venceu!")
     }
 }
+
+botao.addEventListener("click",()=>createTower())
